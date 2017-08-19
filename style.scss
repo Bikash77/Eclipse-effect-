@@ -1,0 +1,64 @@
+$size : 50vmin;
+$duration : 5s;
+
+body {
+	animation: sky $duration linear infinite;
+	background: skyblue;
+	
+	@keyframes sky {
+		from, to { background: skyblue; }
+		50% { background: black; }
+	}
+}
+
+.sky {
+	position: relative;
+	width: $size;
+	height: $size;
+	transform: translate(calc(50vw - #{$size/2}), calc(50vh - #{$size/2}));
+}
+
+.sun, .moon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(red, .5);
+	border-radius: 50%;
+}
+
+.sun {
+	background: gold;
+	animation: sun $duration linear infinite;
+	
+	@keyframes sun {
+		50% {
+			background: white;
+			box-shadow: 
+				0 0 5em white,
+				0 0 5em white,
+				0 0 5em white,
+				0 0 5em white;
+		}
+	}
+}
+
+.moon {
+	animation: moon $duration linear infinite;
+
+	@keyframes moon {
+		from {
+			transform: translateX(-110%);
+			background: lightgray;
+		}
+		50% {
+			background: black;
+		}
+		to {
+			transform: translateX(110%);
+			background: lightgray;
+		}
+	}
+}
+
